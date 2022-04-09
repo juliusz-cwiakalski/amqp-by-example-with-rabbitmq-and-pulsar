@@ -1,0 +1,8 @@
+micronaut:
+  application:
+    name: publisher
+rabbitmq.uri: amqp://localhost:5672
+netty:
+  default:
+    allocator:
+      max-order: 3
