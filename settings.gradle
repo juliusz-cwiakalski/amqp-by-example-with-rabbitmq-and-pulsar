@@ -1,0 +1,4 @@
+rootProject.name = 'amqp-by-example'
+
+include ':publisher'
+include ':subscriber'
