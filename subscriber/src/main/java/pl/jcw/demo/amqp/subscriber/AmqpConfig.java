@@ -1,4 +1,4 @@
-package pl.jcw.demo.amqp.publisher.publisher;
+package pl.jcw.demo.amqp.subscriber;
 
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
@@ -9,13 +9,13 @@ import lombok.extern.slf4j.Slf4j;
 
 @Singleton
 @Slf4j
-public class ChannelPoolListener extends ChannelInitializer {
+public class AmqpConfig extends ChannelInitializer {
+
+  public static final String QUEUE = "messages-queue";
 
   @Override
   public void initialize(Channel channel, String name) throws IOException {
     log.info("Configuring channel {}", name);
-    channel.exchangeDeclare(Config.EXCHANGE, BuiltinExchangeType.DIRECT);
-    channel.queueDeclare(Config.QUEUE, true, false, false, null);
-    channel.queueBind(Config.QUEUE, Config.EXCHANGE, Config.ROUTING_KEY);
+    channel.queueDeclare(QUEUE, true, false, false, null);
   }
 }

@@ -2,15 +2,48 @@ version: "3.2"
 services:
   rabbitmq:
     image: rabbitmq:3.9.14-management
-    container_name: 'rabbitmq'
+#    container_name: 'rabbitmq'
     ports:
       - 5672:5672
       - 15672:15672
-    #    volumes:
-    #      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq/
     #      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+      - internal
+
+  pulsar:
+    image: jcw/pulsar-aop:2.10.0
+    build: ./pulsar
+    ports:
+      - 18080:8080
+      - 6650:6650
+      - 5673:5672
+    environment:
+      PULSAR_MEM: " -Xmx512m -XX:MaxDirectMemorySize=1g"
+    command: bin/pulsar standalone
+    networks:
+      - internal
+    volumes:
+      - pulsar-data:/pulsar/data
+
+  pulsar-dashboard:
+    image: apachepulsar/pulsar-manager:v0.2.0
+    ports:
+      - "9527:9527"
+      - "7750:7750"
+    depends_on:
+      - pulsar
+#    links:
+#      - pulsar
+    environment:
+      SPRING_CONFIGURATION_FILE: /pulsar-manager/pulsar-manager/application.properties
     networks:
       - internal
 
 networks:
   internal:
+
+volumes:
+  rabbitmq-data:
+  pulsar-data:

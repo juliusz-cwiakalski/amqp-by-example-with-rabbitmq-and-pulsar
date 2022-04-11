@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MessageListener {
 
-  @Queue("messages-queue")
+  @Queue(AmqpConfig.QUEUE)
   public void receive(Message message) {
     log.info("Received message: {}", message);
   }

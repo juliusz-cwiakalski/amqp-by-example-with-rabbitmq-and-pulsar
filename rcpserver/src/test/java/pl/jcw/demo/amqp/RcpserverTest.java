@@ -1,0 +1,23 @@
+package pl.jcw.demo.amqp;
+
+import io.micronaut.runtime.EmbeddedApplication;
+import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
+
+import jakarta.inject.Inject;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+@ExtendWith(RabbitMQInTestContainer.class)
+@MicronautTest
+class RcpserverTest {
+
+    @Inject
+    EmbeddedApplication<?> application;
+
+    @Test
+    void testItWorks() {
+        Assertions.assertTrue(application.isRunning());
+    }
+
+}

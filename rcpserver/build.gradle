@@ -21,16 +21,14 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-
     testAnnotationProcessor("org.projectlombok:lombok")
     testCompileOnly("org.projectlombok:lombok")
     testImplementation("org.testcontainers:rabbitmq:1.16.3")
-
 }
 
 
 application {
-    mainClass.set("pl.jcw.demo.amqp.subscriber.SubscriberApplication")
+    mainClass.set("pl.jcw.demo.amqp.Application")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("17")

@@ -1,10 +1,9 @@
 micronaut:
   application:
-    name: publisher
+    name: rcpserver
   server:
-    port: 8081
-rabbitmq:
-  uri: amqp://localhost:5673
+    port: 8083
+rabbitmq.uri: amqp://localhost:5672
 netty:
   default:
     allocator:
