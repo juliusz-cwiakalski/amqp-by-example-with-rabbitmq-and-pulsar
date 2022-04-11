@@ -1,8 +1,11 @@
 micronaut:
   application:
     name: subscriber
+  server:
+    port: 8082
 netty:
   default:
     allocator:
       max-order: 3
-rabbitmq.uri: amqp://localhost:5672
+rabbitmq:
+  uri: amqp://localhost:5672
