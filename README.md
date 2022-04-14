@@ -111,6 +111,16 @@ mn create-app --build=gradle --jdk=17 --lang=java --test=junit \
 
 # Useful resources
 
-- https://micronaut-projects.github.io/micronaut-rabbitmq/latest/guide/
-- https://micronaut-projects.github.io/micronaut-pulsar/latest/guide/
-- https://guides.micronaut.io/latest/micronaut-rabbitmq-rpc-gradle-java.html
+- Micronaut RabbitMQ framework documentation: https://micronaut-projects.github.io/micronaut-rabbitmq/latest/guide/
+- Micronaut Native Pulsar framework documentation: https://micronaut-projects.github.io/micronaut-pulsar/latest/guide/
+- Documentation about implementing RCP: https://guides.micronaut.io/latest/micronaut-rabbitmq-rpc-gradle-java.html
+- AMQP specs: https://www.amqp.org/resources/download / https://www.rabbitmq.com/protocol.html
+- AMQP Message properties: https://www.rabbitmq.com/publishers.html#message-properties
+- Pulsar academy - free training about Pulsar: https://www.academy.streamnative.io/
+- hardware resources for Pulsar https://pulsar.apache.org/docs/en/deploy-bare-metal/
+
+## Some other AMQP Brokers
+
+- https://activemq.apache.org/amqp
+- https://aws.amazon.com/amazon-mq/
+- https://qpid.apache.org/
