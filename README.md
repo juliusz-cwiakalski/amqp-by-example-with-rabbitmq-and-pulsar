@@ -19,7 +19,7 @@ There are 4 services in this repo grouped in pairs:
   communication via [RabbitMQ RCP](https://www.rabbitmq.com/tutorials/tutorial-six-python.html)
   using [Micronaut RabbitMQ RCP](https://guides.micronaut.io/latest/micronaut-rabbitmq-rpc-gradle-java.html) framework
 
-# 5 minutes setup with Docker
+# 5 minutes setup with Docker and usage
 
 **Prerequisites**: working Docker with `docker-compose` available,
 see [how to install docker compose](https://docs.docker.com/compose/install/).
@@ -42,6 +42,38 @@ All commands should be executed from project root.
 - `9527` - Pulsar admin web UI
 - `5672` - AMQP connector of RabbitMQ
 - `15672` - RabbitMQ admin web UI (default user/pass: `guest` / `guest`)
+- `8081` - [REST API (POST)](http://localhost:8081/message) of [publisher](./publisher)
+- `8084` - [REST API (GET)](http://localhost:8084/quotations/?currency=PLN) of [rcpclient](./rcpclient)
+
+## Example requests
+
+### RCP example - get securities quotes
+
+This request uses RCP communication:
+- get list of symbols with currency
+- get quote for each of returned symbol
+
+Communication is logged in [rcpclient](./rcpclient) and [rcpserver](./rcpserver).
+
+```bash
+curl -X GET "http://localhost:8084/quotations/?currency=PLN" | jq
+```
+
+### Publish and subscribe
+
+This request publishes message from [publisher](./publisher) to [subscriber](./subscriber) 
+via exchange `messages-exchange` to queue `messages-queue`.
+
+```bash
+curl -X POST "http://localhost:8081/message" \
+  -H "Content-Type: application/json" \
+  -d '
+        {
+          "category" : "test",
+          "subject": "First message",
+          "body": "This is my first AMQP message"
+        }'
+```
 
 # Notes
 
