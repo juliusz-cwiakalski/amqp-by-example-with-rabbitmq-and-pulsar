@@ -1,4 +1,4 @@
-package pl.jcw.demo.amqp.publisher.publisher;
+package pl.jcw.demo.amqp.publisher;
 
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;

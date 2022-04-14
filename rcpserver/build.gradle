@@ -26,10 +26,11 @@ dependencies {
     testImplementation("org.testcontainers:rabbitmq:1.16.3")
 }
 
-
 application {
-    mainClass.set("pl.jcw.demo.amqp.Application")
+    mainClass.set("pl.jcw.demo.amqp.RcpServerApplication")
 }
+
+
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
     targetCompatibility = JavaVersion.toVersion("17")

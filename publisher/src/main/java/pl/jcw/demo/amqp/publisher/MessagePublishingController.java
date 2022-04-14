@@ -1,4 +1,4 @@
-package pl.jcw.demo.amqp.publisher.publisher;
+package pl.jcw.demo.amqp.publisher;
 
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;

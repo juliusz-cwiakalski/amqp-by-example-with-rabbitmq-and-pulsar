@@ -1,4 +1,4 @@
-package pl.jcw.demo.amqp.publisher.publisher;
+package pl.jcw.demo.amqp.publisher;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;

@@ -28,7 +28,7 @@ dependencies {
 
 
 application {
-    mainClass.set("pl.jcw.demo.amqp.Application")
+    mainClass.set("pl.jcw.demo.amqp.RcpClientApplication")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("17")

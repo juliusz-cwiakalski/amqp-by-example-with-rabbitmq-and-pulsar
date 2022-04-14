@@ -19,7 +19,9 @@ There are 4 services in this repo grouped in pairs:
   communication via [RabbitMQ RCP](https://www.rabbitmq.com/tutorials/tutorial-six-python.html)
   using [Micronaut RabbitMQ RCP](https://guides.micronaut.io/latest/micronaut-rabbitmq-rpc-gradle-java.html) framework
 
-# 5 minutes setup with Docker and usage
+# 5 minutes brokers setup
+
+## Infrastructure in docker
 
 **Prerequisites**: working Docker with `docker-compose` available,
 see [how to install docker compose](https://docs.docker.com/compose/install/).
@@ -35,6 +37,14 @@ All commands should be executed from project root.
        `http://pulsar:8080` (this address is internal in [docker stack](./docker-compose.yml)).
 3. Login to RabbitMQ: [http://localhost:15672/](http://localhost:15672/). Default user/password
    is `guest` / `guest`.
+
+## Microservices started with gradle
+
+*Prerequisite*: Java 17
+
+```bash
+./gradlew build run
+```
 
 ## Ports exposed in [docker stack](./docker-compose.yml)
 

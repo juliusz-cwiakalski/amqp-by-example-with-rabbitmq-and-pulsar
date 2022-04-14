@@ -2,13 +2,11 @@ version: "3.2"
 services:
   rabbitmq:
     image: rabbitmq:3.9.14-management
-#    container_name: 'rabbitmq'
     ports:
       - 5672:5672
       - 15672:15672
     volumes:
       - rabbitmq-data:/var/lib/rabbitmq/
-    #      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
     networks:
       - internal
 
@@ -34,8 +32,6 @@ services:
       - "7750:7750"
     depends_on:
       - pulsar
-#    links:
-#      - pulsar
     environment:
       SPRING_CONFIGURATION_FILE: /pulsar-manager/pulsar-manager/application.properties
     networks:

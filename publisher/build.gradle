@@ -24,10 +24,10 @@ dependencies {
 
 }
 
-
 application {
     mainClass.set("pl.jcw.demo.amqp.publisher.PublisherApplication")
 }
+
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
     targetCompatibility = JavaVersion.toVersion("17")
